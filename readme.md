@@ -1,40 +1,26 @@
-# read invoice data from excel and write it to json obj
-# convert excel to pdf
+# GrapeCity Document API User Cases
 
-# the demo only processs a simgle file. There are other demos showing how to process multiple files.
+To run the project, in Visual Studio Code teminal, run the following:
 
---- init ---
-dotnet new console
-dotnet add package GrapeCity.Documents.Excel
+1. dotnet new console
+2. dotnet add package GrapeCity.Documents.Excel
+3. dotnet run
 
---- get a simple Excel file from the demo, and put it under project folder ---
-https://www.grapecity.com/documents-api-excel/demos/simpleinvoice
+## Use Case 1
 
---- copy content in Program.cs ---
+The LegacyInvoice project shows how to parse data from Excel to JSON and save the Excel to PDF.
 
---- dotnet run ---
+## Use Case 2
 
-# --- part 1 ---
-# The customerbillpay.pdf file under Resources/Templates folder is a blank PDF form for clients to fill.
-# Filled pdf forms are placed in Resources/Uploads folder. 
-# Main program reads data from the forms and converts it to json file as datasource.
-# --- part 2 ---
-# The Template_BillPayReport.xlsx file under Resources/Templates folder defines how to load datasource and display the data.
-# Once the billPayList.json is loaded, a report will generated per the template defined.
-# The BillPayReort is saved in the Output folder
+This use case shows how to build PDF form from Excel template and then parse data from multiple PDF forms to one Excel.
 
---- init ---
-dotnet new console
-dotnet add package GrapeCity.Documents.Excel
+The Excel2PDF project builds a PDF form from an Excel template file `Template_MemberInfo.xlsx`.
 
---- create file structure ---
-Resources/Templates folder should have template files
-Resources/DataSource folder leaves blank. a json file will be saved here after paring data.
-Output folder leaves blank. the report will be generated here.
+The MemberReport project parses multiple PDF forms in the `/Resources/Uploads` folder to one Excel report. The report is saved in the `Output` folder.
 
---- copy BillPayInfos.cs to root folder ---
-It is a class definination, defines attributtes in BillPayInfos object
+The `Template_MemberReport.xlsx file` under the `/Resources/Templates` folder defines how to load datasource and display the data. Once the `memberList.json` is loaded, a report will be generated per the template defined.
 
---- copy GatherData.cs to root folder ---
-it is used as a utility, which contains a function return a billPay object. the input is a pdf filename.
 
+## Use Case 3
+
+This LaptopServiceShop project shows how to create customized Excel from JSON and then build multiple PDFs from one Excel.
